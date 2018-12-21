@@ -1,0 +1,186 @@
+.App {
+  text-align: center;
+  background-color: grey;
+}
+
+.App-header {
+  text-decoration: underline;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  position: relative;
+  top: 0px;
+  justify-content: center;
+  font-size: calc(5px + 2vmin);
+  color: blue;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+button {
+
+  padding: 15px 25px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #d8cd00;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  width: 150px;
+}
+button:hover {background-color:blue;}
+
+button:active {
+  background-color: darkslategrey;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.titleGame{
+  font-size: 45px;
+  color: blue;
+  height: 50px;
+  /*text-decoration: underline;*/
+}
+.brainIcon{
+
+  font-size: 300px;
+  color: blue;
+  flex: 1;
+}
+.ticTacToeImage{
+  min-width: 200px;
+  min-height: 200px;
+  flex: 1;
+}
+.brainAndImage{
+  display: flex;
+  padding-top: 60px;
+}
+.welcome{
+  /*padding-top: 100px;*/
+}
+.game{
+  padding-top: 100px;
+  display: inline-block;
+}
+.emptySquare{
+  min-height: 120px;
+  min-width: 120px;
+  /*background-color: #61dafb;*/
+  /*border-bottom: 5px solid blue;*/
+  /*border-width: 5px;*/
+  cursor: grab;
+  /*min-height: 120px;*/
+  /*min-width: 120px;*/
+  background-color: #61dafb;
+  border-style:solid;
+  border-width: 1px;
+}
+
+.lineBottom{
+  display: flex;
+  border-bottom: solid;
+  border-right: solid;
+  border-left: solid;
+  border-width: 6px;
+}
+.lineMiddle{
+  display: flex;
+  border-right: solid;
+  border-left: solid;
+  border-width: 6px;
+}
+.lineTop{
+display: flex;
+  border-top: solid;
+  border-right: solid;
+  border-left: solid;
+  border-width: 6px;
+}
+.upperSquare {
+/*min-height: 120px;*/
+  /*min-width: 120px;*/
+  /*background-color: #61dafb;*/
+  /*border-style:solid;*/
+  /*border-width: 1px;*/
+}
+.bottomSquare{
+  min-height: 120px;
+  min-width: 120px;
+  background-color: #61dafb;
+  border-style:solid;
+  border-width: 1px;
+}
+.middleSquare{
+  min-height: 120px;
+  min-width: 120px;
+  background-color: #61dafb;
+  border-style:solid;
+  border-width: 1px;
+}
+.gameStart{
+  /*position: absolute;*/
+  /*top: 100px;*/
+
+}
+.selected{
+  border-color: red;
+  border-width: 2px;
+}
+.circle{
+  width : 80px;
+  height : 80px;
+  border-radius : 100px;
+  border : 5px solid blue;
+  margin: 15px auto;
+}
+.xSymbol {
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+  position: relative;
+  right: -14px;
+  top: 4px;
+}
+
+.xSymbol:after {
+  content: "\274c"; /* use the hex value here... */
+  font-size: 64px;
+  line-height: 100px;
+}
+.winnerLine{
+  font-size: 30px;
+  font-family: "Arial, Helvetica, sans-serif";
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: center;
+}
+.newGame{ margin: 0 auto;}
+.trophy{
+  margin-left: 5px;
+}
+.theWinner{   margin-left: 5px;}
