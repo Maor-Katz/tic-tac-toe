@@ -169,7 +169,7 @@ display: flex;
 }
 
 .xSymbol:after {
-  content: "\274c"; /* use the hex value here... */
+  content: "\274c";
   font-size: 64px;
   line-height: 100px;
 }
@@ -185,4 +185,4 @@ display: flex;
 .trophy{
   margin-left: 5px;
 }
-.theWinner{   margin-left: 5px; margin-bottom: 5px;}
+.theWinner{ margin-left: 5px; margin-bottom: 5px;}
