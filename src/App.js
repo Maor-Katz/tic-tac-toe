@@ -5,7 +5,7 @@ import {WelcomePage} from "./WelcomePage";
 import {GameStarted} from "./GameStarted";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faGamepad} from '@fortawesome/free-solid-svg-icons'
-import {faBrain} from "@fortawesome/free-solid-svg-icons/index";
+// import {faBrain} from "@fortawesome/free-solid-svg-icons/index";
 import {library} from "@fortawesome/fontawesome-svg-core/index";
 
 
@@ -41,6 +41,6 @@ class App extends Component {
                 }
             </div>
 
-    )  ;}}
+    )  }}
 
     export default App;

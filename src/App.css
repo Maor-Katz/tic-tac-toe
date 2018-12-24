@@ -1,6 +1,8 @@
 .App {
   text-align: center;
   background-color: grey;
+  height: -webkit-fill-available;
+  min-height: 800px;
 }
 
 .App-header {
@@ -183,4 +185,4 @@ display: flex;
 .trophy{
   margin-left: 5px;
 }
-.theWinner{   margin-left: 5px;}
+.theWinner{   margin-left: 5px; margin-bottom: 5px;}

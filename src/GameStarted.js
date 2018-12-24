@@ -16,6 +16,7 @@ export class GameStarted extends React.Component {
             roundTurn: false,
             xTurn: true,
             xWin: false,
+            Even: false,
             circleWin: false,
             arr1: ['topLeft', 'topMiddle', 'topRight'],
             arr2: ['middleLeft', 'middleMiddle', 'middleRight'],
@@ -38,7 +39,7 @@ export class GameStarted extends React.Component {
         }
     };
     clickHandler = (indexLine, locationLine, event) => {
-        let {xTurn, roundTurn, result, circleWin, xWin} = this.state
+        let {xTurn, roundTurn, result, circleWin, xWin, Even} = this.state
         const t = indexLine
         const y = locationLine
         const z = event
@@ -57,6 +58,14 @@ export class GameStarted extends React.Component {
             xTurn: !xTurn,
             result
         })
+        //for the draw
+        let count = 0
+        const selectionElements = document.getElementsByClassName("selection")
+        Object.values(selectionElements).map(square => {
+            if (square.className.length > 9) {
+                count++
+            }
+        })
         //check if circle won
         if ((result[0] === 2 && result[1] === 2 && result[2] === 2) || (result[3] === 2 && result[4] === 2 && result[5] === 2) || (result[6] === 2 && result[7] === 2 && result[8] === 2) || (result[0] === 2 && result[4] === 2 && result[8] === 2) || (result[2] === 2 && result[4] === 2 && result[6] === 2) || (result[0] === 2 && result[3] === 2 && result[6] === 2) || (result[1] === 2 && result[4] === 2 && result[7] === 2) || (result[2] === 2 && result[5] === 2 && result[8] === 2)) {
             setTimeout(function () {
@@ -64,26 +73,34 @@ export class GameStarted extends React.Component {
             }.bind(this), 500);
         }
         // check if x won
-        if ((result[0] === 1 && result[1] === 1 && result[2] === 1) || (result[3] === 1 && result[4] === 1 && result[5] === 1) || (result[6] === 1 && result[7] === 1 && result[8] === 1) || (result[0] === 1 && result[4] === 1 && result[8] === 1) || (result[2] === 1 && result[4] === 1 && result[6] === 1) || (result[0] === 1 && result[3] === 1 && result[6] === 1) || (result[1] === 1 && result[4] === 1 && result[7] === 1) || (result[2] === 1 && result[5] === 1 && result[8] === 1)) {
+        else if ((result[0] === 1 && result[1] === 1 && result[2] === 1) || (result[3] === 1 && result[4] === 1 && result[5] === 1) || (result[6] === 1 && result[7] === 1 && result[8] === 1) || (result[0] === 1 && result[4] === 1 && result[8] === 1) || (result[2] === 1 && result[4] === 1 && result[6] === 1) || (result[0] === 1 && result[3] === 1 && result[6] === 1) || (result[1] === 1 && result[4] === 1 && result[7] === 1) || (result[2] === 1 && result[5] === 1 && result[8] === 1)) {
             setTimeout(function () {
                 this.setState({xWin: true});
             }.bind(this), 500);
         }
+        //check draw
+        else if (count === 9) {
+            setTimeout(function () {
+                this.setState({Even: true});
+            }.bind(this), 500);
+            debugger
+        }
     }
     resetGame = () => {
         const selectionElements = document.getElementsByClassName("selection")
-        Object.values(selectionElements).map(square => square.className='selection')
+        Object.values(selectionElements).map(square => square.className = 'selection')
         this.setState({
             result: [0, 0, 0, 0, 0, 0, 0, 0, 0],
             roundTurn: false,
             xTurn: true,
             xWin: false,
+            Even: false,
             circleWin: false
         })
     }
 
     render() {
-        const {roundTurn, xTurn, result, xWin, circleWin, arr1, arr2, arr3} = this.state
+        const {roundTurn, xTurn, result, xWin, circleWin, Even, arr1, arr2, arr3} = this.state
         debugger
 
         library.add(faTrophy)
@@ -91,16 +108,16 @@ export class GameStarted extends React.Component {
             <div className="gameStart">
                 {
                     <div className="game">
-                        {(circleWin == true || xWin == true) ?
+                        {(circleWin == true || xWin == true || Even == true) ?
                             <Modal
                                 isOpen={true}
                                 style={this.customStyles}
                                 ariaHideApp={false}
                             >
                                 <div className="winnerLine">
-                                    <div className="winner">The winner is</div>
-                                    {circleWin ? <div className="theWinner">Circle</div> :
-                                        <div className="theWinner">X</div>}
+                                    {circleWin ? <div className="theWinner">Circle Won!</div> : null}
+                                    {xWin ? <div className="theWinner">X Won!</div>: null}
+                                    {Even ? <div className="theWinner">Draw, keep playing!</div>: null}
                                     <div className="trophy">
                                         <FontAwesomeIcon icon="trophy"/>
                                     </div>
